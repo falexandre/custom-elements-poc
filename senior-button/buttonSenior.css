@@ -1,0 +1,9 @@
+senior-button {
+    position: relative;
+    cursor: pointer;
+    background: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px auto;
+}
