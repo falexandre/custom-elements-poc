@@ -1,0 +1,40 @@
+<html>
+<head>
+    <script>
+        // customElements.define('senior-icon', class extends HTMLElement {
+        //     constructor() {
+        //         super();
+        //         let shadowRoot = this.attachShadow({mode: 'open'});
+        //         const t = document.querySelector('#senior-icon');
+        //         const instance = t.content.cloneNode(true);
+        //         shadowRoot.appendChild(instance);
+        //     }
+        // });
+        var NovoComponente = document.registerElement('senior-icon', {
+            prototype: Object.create(HTMLElement.prototype, {
+                createdCallback: {
+                    value: function () {
+                        var
+                            link = document.querySelector('link[rel=import]'),
+                            t = link.import.querySelector('#senior-icon'),
+                            clone = document.importNode(t.content, true);
+                            element = this,
+                            icon = this.getAttribute('icon');
+                        // clone.querySelector('.material-icons').innerHTML = icon;
+                        element.createShadowRoot().appendChild(clone);
+                    }
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+<template id="senior-icon">
+    <div>
+        <h4>Senior icon</h4>
+        <i class="material-icons">add</i>
+    </div>
+</template>
+</body>
+</html>
+
